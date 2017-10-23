@@ -1,0 +1,55 @@
+{
+  "name": "ilp-connector-route-manager",
+  "version": "0.0.0",
+  "description": "use in conjunction with ilp-connector-shard",
+  "main": "index.js",
+  "scripts": {
+    "start": "node bin/start.js",
+    "lint": "eslint index.js bin src test",
+    "test": "mocha --recursive test/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/justmoon/ilp-connector-route-manager.git"
+  },
+  "keywords": [
+    "ilp",
+    "connector",
+    "route",
+    "pathfinding",
+    "scalable",
+    "payment",
+    "money",
+    "interledger"
+  ],
+  "author": "Interledger Team <info@interledger.org>",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/justmoon/ilp-connector-route-manager/issues"
+  },
+  "homepage": "https://github.com/justmoon/ilp-connector-route-manager#readme",
+  "dependencies": {
+    "ajv": "^5.2.3",
+    "boom": "^5.2.0",
+    "koa": "^2.3.0",
+    "koa-bodyparser": "^4.2.0",
+    "koa-logger": "^3.0.1",
+    "koa-router": "^7.2.1",
+    "superagent": "^3.6.3"
+  },
+  "devDependencies": {
+    "base64url": "^2.0.0",
+    "eslint": "^4.3.0",
+    "eslint-config-standard": "^10.2.1",
+    "eslint-plugin-import": "^2.7.0",
+    "eslint-plugin-node": "^5.1.1",
+    "eslint-plugin-promise": "^3.5.0",
+    "eslint-plugin-standard": "^3.0.1",
+    "ilp-connector-shard": "git+https://github.com/justmoon/ilp-connector-shard.git",
+    "ilp-packet": "^1.4.0",
+    "ilp-plugin-payment-channel-framework": "git+https://github.com/interledgerjs/ilp-plugin-payment-channel-framework.git",
+    "lolex": "^2.1.3",
+    "mocha": "^3.5.3",
+    "nock": "^9.0.14"
+  }
+}
