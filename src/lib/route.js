@@ -1,5 +1,7 @@
 'use strict'
 
+const { LiquidityCurve } = require('ilp-routing')
+
 class Route {
   /**
    * @param {Object} info
@@ -9,6 +11,7 @@ class Route {
    * @param {String} info.targetPrefix - the last ledger on this route
    * @param {Number} info.expiresAt
    * @param {Point[]} info.curveLocal
+   * @param {Point[]} info.curveRemote
    * @param {Boolean} info.isLocal
    * @param {String} info.foreignPeer
    * @param {String[][]} paths - possible lists of hops in between nextLedger and targetPrefix
@@ -21,6 +24,8 @@ class Route {
 
     this.expiresAt = info.expiresAt
     this.curveLocal = info.curveLocal
+    this.curveRemote = info.curveRemote
+    this.curveFull = info.curveFull
     this.isLocal = info.isLocal
     this.foreignPeer = info.foreignPeer
 
@@ -90,8 +95,14 @@ class Route {
       })
     })
 
+    const curveRemote = (new LiquidityCurve(this.curveRemote)).join(
+      new LiquidityCurve(tailRoute.curveFull))
+    const curveFull = (new LiquidityCurve(this.curveLocal)).join(curveRemote)
+
     return new Route({
       curveLocal: this.curveLocal,
+      curveRemote: curveRemote.getPoints(),
+      curveFull: curveFull.getPoints(),
       sourceLedger: this.sourceLedger,
       nextLedger: this.nextLedger,
       nextShard: this.nextShard,

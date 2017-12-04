@@ -31,6 +31,7 @@
   "dependencies": {
     "ajv": "^5.2.3",
     "boom": "^5.2.0",
+    "ilp-routing": "^10.1.0",
     "koa": "^2.3.0",
     "koa-bodyparser": "^4.2.0",
     "koa-logger": "^3.0.1",

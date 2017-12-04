@@ -36,6 +36,7 @@ class RouteTable {
       prefix: route.targetPrefix,
       shard: route.nextShard,
       curveLocal: route.curveLocal,
+      curveRemote: route.curveRemote,
       local: route.isLocal
     }))
   }
@@ -48,6 +49,7 @@ class RouteTable {
         destination_ledger: route.targetPrefix,
         source_account: this.shard.account,
         min_message_window: MIN_MESSAGE_WINDOW,
+        points: route.curveFull,
         paths: route.paths
       }))
   }

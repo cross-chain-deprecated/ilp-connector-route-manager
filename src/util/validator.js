@@ -23,6 +23,9 @@ const validateShardRoute = (shardRoute) => {
   if (shardRoute.curveLocal !== undefined) {
     assert.ok(Array.isArray(shardRoute.curveLocal), message('curveLocal must be an array'))
   }
+  if (shardRoute.curveRemote !== undefined) {
+    assert.ok(Array.isArray(shardRoute.curveRemote), message('curveRemote must be an array'))
+  }
   if (shardRoute.local !== undefined) {
     assert.equal(typeof shardRoute.local, 'boolean', message('local must be a boolean'))
   }

@@ -23,6 +23,7 @@ class TableCoordinator {
       nextShard: nextShard.host,
       targetPrefix: shardRoute.prefix,
       curveLocal: shardRoute.curveLocal,
+      curveRemote: shardRoute.curveRemote,
       isLocal: shardRoute.local,
       expiresAt: Infinity // Never expire the initial routes.
     })
@@ -31,6 +32,7 @@ class TableCoordinator {
 
   addMessageRoute (msgRoute) {
     const tailRoute = new Route({
+      curveFull: msgRoute.points,
       sourceLedger: msgRoute.source_ledger,
       nextLedger: msgRoute.destination_ledger,
       targetPrefix: msgRoute.destination_ledger,
